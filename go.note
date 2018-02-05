@@ -29,8 +29,8 @@ goLang: http://intellij.mandroid.cn/
 3.  init函数初始化函数:
 	init方法 是在任何package中都可以出现,但是建议 每个package中只包含一个init()函数比较好,容易理解.
 	init在main函数执行之前执行.
-	
-4.  接口: 
+
+4.  接口:
 	Go语言数据结构的核心.是一些方法的集合.他指定了对象的行为: 如果它(任何数据类型)可以做这些事情,那么它就可以在这里使用.
 
 5. := 结构不能使用在函数外.
@@ -45,20 +45,20 @@ goLang: http://intellij.mandroid.cn/
 	     // 代表一个Unicode码
 	float32 float64
 	complex64 complex128
-7.  基本类型和引用类型: 
+7.  基本类型和引用类型:
 	* 基本类型(数组也是)因为是拷贝的值,并且在对他进行操作的时候,生成的也是新创建的值,所以这些类型在多线程里是安全的,我们不用担心一个线程的修改影响了另外一个线程的数据
 	* 引用类型和原始的基本类型恰恰相反,它的修改可以影响到任何引用到它的变量.在 Go 语言中,引用类型有 slice,map,chan,===接口,函数类型.
 	* 结构类型,要想修改结构实例的值,需要传递指针.[e. &p]
 8.  数组(array)和切片(slice):
 	*  增加元素: append
 	*  遍历元素: for k,v := range mySlice{....}
-9.  channel: 
+9.  channel:
 	* 管道是Go语言在语言级别上提供的goroutine间的**通讯方式**,我们可以使用channel在多个goroutine之间传递消息.channel是**进程内**的通讯方式,是不支持跨进程通信的,如果需要进程间通讯的话,可以使用Socket等网络方式
 	* 语法: var chanName chan ElemType  / ch := make(chan int, 100)
 	* 写入数据,在此需要注意：向管道中写入数据通常会导致程序阻塞,直到有其他goroutine从这个管道中读取数据ch<- value
 	* 读取数据,注意：如果管道中没有数据,那么从管道中读取数据会导致程序阻塞,直到有数据 value := <-ch
 	* 单向管道,var ch1 chan<- float64  / var ch2 <-chan int(只能读取int型数据)
-	* 关闭channel,直接调用close()即可 :  close(ch) 
+	* 关闭channel,直接调用close()即可 :  close(ch)
 	* 判断ch是否关闭,判断ok的值,如果是false,则说明已经关闭(关闭的话读取是不会阻塞的) x, ok := <-ch
 	* Goroutine和channel是Go在“并发”方面两个核心feature.
 	* channel 是 Goroutine 之间进行通信的一种方式(作用:同步 或传递信息).
@@ -66,8 +66,8 @@ goLang: http://intellij.mandroid.cn/
 	* 所谓的单向channel概念,其实只是对channel的一种使用限制.
 		单项channel初始化:ch3 := make(chan int) ; ch4 := <-chan int(ch3).
 10. 协程(goroutine): 需探.
-11. 类型方法: 
-12. new 和 make 区别: 
+11. 类型方法:
+12. new 和 make 区别:
 	* new 用在实例化结构体类型上比较能体现出价值.
 	* make 的作用我深有体会,例如: 我只通过var m map[int]string;此时声明的是一个nil-map,故需要m = make(map[int]string)一下才能直接赋值.
 	* 一定要注意的是 嵌套类型时 ,必须对其make,否则会出错.例:
@@ -156,7 +156,7 @@ func testFunc()  {
 	* 如果我们定义了一个interface的变量,那么这个变量里面可以存实现这个interface的任意类型的对象
 	* 验证某接口变量存储的是哪个类型,可以通过Comma-ok断言 或switch
 	* 嵌入interface
-	* 	
+	*
 26. 反射(reflect):
 	使用reflect一般分为三步,要去反射一个类型的值(这些值都实现了空interface),
 	* 首先需要把它转化成reflect对象(reflect.Type或者reflect.Value,根据不同情况调用不同的函数).这两种获取方式:
@@ -169,48 +169,11 @@ func testFunc()  {
 	* 反射的两个性质: https://studygolang.com/articles/2157
 	* 反射定律: interface value to reflection object(接口类型值其实就是 谁实现了该接口)
 				e: var i = interface{};var a int =10;i=a; 此时接口变量i中就包含属性(10,int)
-				reflection object to interface value 
+				reflection object to interface value
 	=====
 	* 接口类型,一种特殊的数据类型,包括一组 方法集,同时,其内部维护两个属性：value 和 type.value指的是实现了接口类型的类型值
 				;type则是对相应类型值的类型描述.
 	* 反射定律: 1: 反射可以将“接口类型变量”转换为“反射类型对象(reflect.Type/reflect.Value:通过reflect.TypeOf()实现)”;
 				2: 反射可以将“反射类型对象”转换为“接口类型变量”(根据一个 reflect.Value 类型的变量，我们可以使用 Interface 方法恢复其接口类型的值。事实上，这个方法会把 type 和 value 信息打包并填充到一个接口变量中)
 				3: 如果要修改反射类型对象，其值必须是“addressable”
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+27. 测试Atom使用.
