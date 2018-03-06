@@ -1,6 +1,7 @@
 #  goLang's note
 ## 一:  goLang基础:
-[goLangIDE破解](http://intellij.mandroid.cn/)
+[goLangIDE服务器破解](http://intellij.mandroid.cn/)
+[goLangIDE永久破解](http://www.jb51.net/softs/598316.html)
 1. 数据类型: bool,int,string,指针,数组,struct,channel,函数,切片,接口,Map
 	变量命名: 驼峰[区别局部变量和全局变量:首字母大小写]
 	全局变量: 一个变量(常量,类型,函数) 在程序中都有一定的作用域.如果一个变量在函数外声明,则是全局变量,可以在整个包甚至外部包(被导入后)使用.不管你声明在哪个源文件里或在哪个源文件里调用该变量.
